@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruction: Secure Access for AiMarketing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+            background: linear-gradient(-45deg, #12343b, #2d545e, #1a1a1a, #121212);
+            background-size: 400% 400%;
+            animation: gradient 20s ease infinite;
+            color: #e5e7eb;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        .step-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+        }
+        .step-number {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+        }
+        .business-id-highlight {
+            background-color: #e0e7ff;
+            color: #3730a3;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+        .security-checklist {
+            background-color: rgba(255, 251, 235, 0.9);
+            border-left: 4px solid #f59e0b;
+            color: #1f2937;
+        }
+        .why-secure {
+            background-color: rgba(239, 246, 255, 0.9);
+            border-left: 4px solid #3b82f6;
+            color: #1f2937;
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease-out;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            color: #1f2937;
+            margin: 10% auto;
+            padding: 2rem;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: slideIn 0.3s ease-out;
+        }
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .modal-close:hover,
+        .modal-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        /* Premium Button Styles */
+        .premium-button {
+            background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .premium-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
+        }
+        
+        /* Gradient Text Styles */
+        .gradient-text-title {
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <header class="bg-black bg-opacity-30 backdrop-blur-sm text-white w-full z-50 shadow-lg">
+        <div class="container mx-auto max-w-6xl px-6 py-4">
+            <nav class="flex justify-between items-center">
+                <div class="flex items-center space-x-6">
+                    <img src="https://i.postimg.cc/qMr7F1cJ/Bebas-Neue-Cyrillic-1.png" alt="AiMarketing Logo" class="h-40">
+                    <span class="font-serif text-4xl font-bold hidden sm:block">Ai.MArketing</span>
+                </div>
+                <button id="openSecurityModal" class="premium-button flex items-center gap-3 px-5 py-3 text-white font-semibold rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    <span class="hidden md:block">Security Guarantee</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto max-w-4xl px-4 py-12 md:py-20">
+
+        <header class="text-center mb-12">
+            <h1 class="gradient-text-title text-4xl md:text-5xl font-extrabold mb-4">Instructions to Get Started</h1>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto">Follow these steps to securely grant access and activate our partnership.</p>
+        </header>
+
+        <div class="security-checklist p-6 rounded-lg mb-12">
+            <h2 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-amber-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                Pre-start Security Checklist
+            </h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li>Ensure you are an <strong class="font-semibold text-gray-800">administrator</strong> of the Meta Business Account to which you are granting access.</li>
+                <li>Verify that <strong class="font-semibold text-gray-800">two-factor authentication (2FA)</strong> is enabled on your personal Facebook account. This is critical for protection.</li>
+                <li>It is recommended to have at least <strong class="font-semibold text-gray-800">two administrators</strong> in your business account for added security.</li>
+            </ul>
+        </div>
+
+        <div class="why-secure p-6 rounded-lg mb-12">
+            <h2 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-blue-500"><shield/></svg>
+                Why We Use Partner Access
+            </h2>
+            <p class="text-gray-700">We request access as a "Partner," not as an "Individual," because it is the industry security standard. This method <strong class="font-semibold text-gray-800">is not tied to our employees' personal accounts</strong> but is granted to our agency as an organization. This centralizes management, enhances security, and protects your assets from unauthorized access.</p>
+        </div>
+
+
+        <div class="space-y-8">
+            <h2 class="text-3xl font-bold text-center text-white mb-6">Follow These Steps</h2>
+            
+            <div class="step-card p-6 md:p-8 rounded-xl shadow-lg flex flex-col md:flex-row items-start gap-6 text-gray-800">
+                <div class="step-number bg-indigo-600 text-white text-2xl font-bold rounded-full flex items-center justify-center">1</div>
+                <div class="w-full">
+                    <h3 class="text-2xl font-bold mb-3">Go to Business Settings</h3>
+                    <p class="mb-4">Open your Meta Business Suite settings by clicking this link: <a href="https://business.facebook.com/settings" target="_blank" class="text-indigo-600 font-semibold hover:underline">business.facebook.com/settings</a>. Select the correct business account from the dropdown menu on the left.</p>
+                </div>
+            </div>
+
+            <div class="step-card p-6 md:p-8 rounded-xl shadow-lg flex flex-col md:flex-row items-start gap-6 text-gray-800">
+                <div class="step-number bg-indigo-600 text-white text-2xl font-bold rounded-full flex items-center justify-center">2</div>
+                <div class="w-full">
+                    <h3 class="text-2xl font-bold mb-3">Find the "Partners" Section</h3>
+                    <p class="mb-4">In the left menu, under <strong class="text-gray-900">"Users,"</strong> select <strong class="text-gray-900">"Partners."</strong> Then, click the blue <strong class="text-gray-900">"Add"</strong> button and choose <strong class="text-gray-900">"Give a partner access to your assets."</strong></p>
+                </div>
+            </div>
+
+            <div class="step-card p-6 md:p-8 rounded-xl shadow-lg flex flex-col md:flex-row items-start gap-6 text-gray-800">
+                <div class="step-number bg-indigo-600 text-white text-2xl font-bold rounded-full flex items-center justify-center">3</div>
+                <div class="w-full">
+                    <h3 class="text-2xl font-bold mb-3">Enter our Business Account ID</h3>
+                    <p class="mb-4">In the window that appears, paste our agency's Business Account ID. Click the button below to copy it.</p>
+                    <div class="flex flex-wrap gap-3 items-center bg-gray-100 p-4 rounded-lg">
+                        <span id="businessIdForCopy" class="business-id-highlight px-3 py-1 rounded-md break-all">1461249777976011</span>
+                        <button id="copyButton" class="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 active:bg-indigo-800 transition-all flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            <span id="copyButtonText">Copy</span>
+                        </button>
+                    </div>
+                     <p class="mt-4">After pasting the ID, click <strong class="text-gray-900">"Next."</strong></p>
+                </div>
+            </div>
+
+            <div class="step-card p-6 md:p-8 rounded-xl shadow-lg flex flex-col md:flex-row items-start gap-6 text-gray-800">
+                <div class="step-number bg-indigo-600 text-white text-2xl font-bold rounded-full flex items-center justify-center">4</div>
+                <div class="w-full">
+                    <h3 class="text-2xl font-bold mb-3">Select Assets and Assign Access</h3>
+                    <p class="mb-4">On this step, choose which assets you are granting access to. We will need the following permissions for full functionality:</p>
+                    <div class="space-y-3 text-gray-700">
+                        <p>1. In the left column, select <strong class="text-gray-900">"Pages."</strong> Choose your Facebook Page and, in the right column, activate the <strong class="text-red-600">"Full control" -> "Manage"</strong> toggle.</p>
+                        <p>2. In the left column, select <strong class="text-gray-900">"Ad accounts."</strong> Choose your ad account and activate the <strong class="text-red-600">"Full control" -> "Manage"</strong> toggle.</p>
+                        <p>3. In the left column, select <strong class="text-gray-900">"Instagram accounts."</strong> Choose your Instagram profile and activate the <strong class="text-red-600">"Full control" -> "Manage"</strong> toggle.</p>
+                        <p>4. In the left column, select <strong class="text-gray-900">"Pixels."</strong> Choose your pixel and activate the <strong class="text-red-600">"Full control" -> "Manage"</strong> toggle.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step-card p-6 md:p-8 rounded-xl shadow-lg flex flex-col md:flex-row items-start gap-6 text-gray-800">
+                 <div class="step-number bg-green-500 text-white text-2xl font-bold rounded-full flex items-center justify-center">✓</div>
+                <div class="w-full">
+                    <h3 class="text-2xl font-bold mb-3">Done!</h3>
+                    <p class="mb-4">Click the <strong class="text-gray-900">"Save Changes"</strong> button. We will receive a notification and, after accepting the invitation, we can begin our work. Thank you for your trust!</p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="text-center mt-16 text-gray-400">
+            <p>&copy; 2024. Secure access tool by AiMarketing.</p>
+        </footer>
+
+    </main>
+
+    <div id="securityModal" class="modal-overlay">
+        <div class="modal-content">
+            <span id="closeSecurityModal" class="modal-close">&times;</span>
+            <h2 class="text-2xl font-bold mb-4">Your Security is Our Priority</h2>
+            <div class="space-y-4 text-gray-600">
+                <p>We understand how important the security of your business assets is. That's why we exclusively use the official and most secure access method recommended by Meta.</p>
+                <div>
+                    <h3 class="font-bold text-lg text-gray-800">✓ No Passwords Exchanged</h3>
+                    <p>You will never share your personal Facebook or Instagram logins or passwords with us. The entire process occurs within Meta's secure system.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-gray-800">✓ Access for an Organization, Not an Individual</h3>
+                    <p>You grant access to our agency as a "Partner," not to an employee's personal account. This means access is centrally managed and not dependent on specific individuals, eliminating risks during personnel changes.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-gray-800">✓ You Retain Full Control</h3>
+                    <p>You are the sole owner of your assets. At any time, you can review, modify, or completely revoke the access you've granted us in your Business Suite settings.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-gray-800">✓ Protection Against Fraud</h3>
+                    <p>This method protects you from phishing and attempts by scammers to gain access to your data, as it does not require clicking on suspicious links or sharing confidential information with third parties.</p>
+                </div>
+                <p class="pt-4 border-t border-gray-200">By entrusting us with access, you can be confident that we adhere to the highest security standards to protect your business.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Copy Button Logic ---
+            const copyButton = document.getElementById('copyButton');
+            const copyButtonText = document.getElementById('copyButtonText');
+            const businessIdForCopy = document.getElementById('businessIdForCopy');
+
+            copyButton.addEventListener('click', function() {
+                const textToCopy = businessIdForCopy.textContent;
+                if (!navigator.clipboard) {
+                    try {
+                        const textArea = document.createElement('textarea');
+                        textArea.value = textToCopy;
+                        document.body.appendChild(textArea);
+                        textArea.focus();
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                        showSuccessMessage();
+                    } catch (err) {
+                        console.error('Fallback: Oops, unable to copy', err);
+                        alert('Could not copy the ID. Please do it manually.');
+                    }
+                    return;
+                }
+                navigator.clipboard.writeText(textToCopy).then(showSuccessMessage, function(err) {
+                    console.error('Async: Could not copy text: ', err);
+                    alert('Could not copy the ID. Please do it manually.');
+                });
+            });
+
+            function showSuccessMessage() {
+                copyButtonText.textContent = 'Copied!';
+                copyButton.classList.add('bg-green-500', 'hover:bg-green-600');
+                copyButton.classList.remove('premium-button'); 
+                setTimeout(() => {
+                    copyButtonText.textContent = 'Copy';
+                    copyButton.classList.remove('bg-green-500', 'hover:bg-green-600');
+                    copyButton.classList.add('premium-button');
+                }, 2000);
+            }
+
+            // --- Modal Logic ---
+            const modal = document.getElementById('securityModal');
+            const openBtn = document.getElementById('openSecurityModal');
+            const closeBtn = document.getElementById('closeSecurityModal');
+
+            const openModal = () => modal.style.display = 'block';
+            const closeModal = () => modal.style.display = 'none';
+
+            openBtn.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+            
+            window.addEventListener('click', function(event) {
+                if (event.target == modal) {
+                    closeModal();
+                }
+            });
+            
+            window.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modal.style.display === 'block') {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
